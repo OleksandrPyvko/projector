@@ -4,17 +4,18 @@ const userNames = [
   'Петрик Ольга Іванівна',
   'Гнатюк Петро Антонович',
   'Рудко Андрій Опанасович',
-  '',
+  'Олег',
+  'Артем Іванович',
 ];
 let initials;
 
-const getInitials = userNames.map(names => {
-  const splitNames = names.split(' ');
-  const initialsLet = splitNames.map(pieces => pieces[0][0] + '');
-  return initialsLet;
-})
-initials = getInitials;   
+const firstLetters = userNames.map((name) => {
+  const words = name.split(' ');
+  const letters = words.map((word) => word.charAt(0) + '.');
+  return letters.join('');
+});
 
+initials = firstLetters;
 initials.sort();
 
 console.log(initials); // [ "Г.П.А.", "П.О.І.", "Р.А.О."]
@@ -41,4 +42,3 @@ productOfArray = flatArr.reduce(
 );
 
 console.log(productOfArray); // 24
-
