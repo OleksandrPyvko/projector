@@ -7,6 +7,7 @@ const userNames = [
   'Олег',
   'Артем Іванович',
 ];
+
 let initials;
 
 const firstLetters = userNames.map((name) => {
@@ -18,7 +19,7 @@ const firstLetters = userNames.map((name) => {
 initials = firstLetters;
 initials.sort();
 
-console.log(initials); // [ "Г.П.А.", "П.О.І.", "Р.А.О."]
+console.log(initials); 
 
 // 2 Задача на розворот числа:
 
@@ -27,8 +28,8 @@ let reverseMaxValue;
 
 reverseMaxValue = currentMaxValue.toString().split('').reverse().join('');
 
-console.log(reverseMaxValue); // 9854
-console.log(typeof reverseMaxValue); // 'number'
+console.log(reverseMaxValue); 
+console.log(typeof reverseMaxValue); 
 
 // 3 Задача на знаходження добутку масиву чисел з невідомою глибиною вкладеності:
 
@@ -41,4 +42,4 @@ productOfArray = flatArr.reduce(
   (accumulator, currentValue) => accumulator * currentValue
 );
 
-console.log(productOfArray); // 24
+console.log(productOfArray); 
