@@ -33,3 +33,22 @@ console.log(periodOfTime('02 Aug 1985', '03 Aug 1985', 'hours'));
 console.log(periodOfTime('02 Aug 1985', '03 Aug 1985', 'seconds'));
 console.log(periodOfTime('31 Jan 2022', '03 Feb 2021', 'days'));
 console.log(periodOfTime());
+
+
+// 2
+
+const priceData = {
+Apples: '23.4',
+BANANAS: '48',
+oRAngGEs: '48.7584',
+ };
+function optimizer(data) {
+  const formattedObj = { };
+  for (const [key, value] of Object.entries(data)) {
+    formattedObj[key.toLowerCase()] = Number(value).toFixed(2);
+  }
+  return formattedObj;
+
+};
+let updatedPriceData = optimizer(priceData);
+console.log(updatedPriceData)    // {apples: '23.40', bananas: '48.00', oranges: '48.76'} 
