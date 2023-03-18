@@ -3,30 +3,23 @@
 function periodOfTime(
   startDate = '01 Jan 1990',
   endDate = '15 Mar 2023',
-  timeCounter = 'hours'
-) {
-  if (timeCounter === 'days') {
-    const diffInDays =
-      (Date.parse(startDate) - Date.parse(endDate)) / 1000 / 86400;
-    return Math.abs(diffInDays);
+  timeCounter = 'hours') {
+  
+  const timePeriod = {
+    days: 86400,
+    hours: 3600,
+    minutes: 60,
+    seconds: 1
+  };
+  
+    const starting = Date.parse(startDate);
+    const ending = Date.parse(endDate);
+    const diffInSeconds = Math.abs(starting - ending) / 1000;
+    const difference = diffInSeconds / timePeriod[timeCounter];
+    return difference;
   }
-  if (timeCounter === 'hours') {
-    const diffInHours =
-      (Date.parse(startDate) - Date.parse(endDate)) / 1000 / 3600;
-    return Math.abs(diffInHours);
-  }
-  if (timeCounter === 'minutes') {
-    const diffInMinutes =
-      (Date.parse(startDate) - Date.parse(endDate)) / 1000 / 60;
-    return Math.abs(diffInMinutes);
-  }
-  if (timeCounter === 'seconds') {
-    const diffInSeconds = (Date.parse(startDate) - Date.parse(endDate)) / 1000;
-    return Math.abs(diffInSeconds);
-  } else {
-    return 'Wrong period format';
-  }
-}
+ 
+
 
 console.log(periodOfTime('02 Aug 1985', '03 Aug 1985', 'minutes'));
 console.log(periodOfTime('02 Aug 1985', '03 Aug 1985', 'hours'));
@@ -58,7 +51,8 @@ function recursiveOddSumTo(number) {
     return 0;
   }
   if (number % 2 === 0) {
-    number--;
+    // number--;
+    
   }
   return number + recursiveOddSumTo(number - 2);
 }
@@ -78,3 +72,5 @@ function iterativeOddSumTo(number) {
 
 console.log(iterativeOddSumTo(1)); // 1
 console.log(iterativeOddSumTo(10)); // 25
+
+////JS REFACTOR
