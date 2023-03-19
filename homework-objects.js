@@ -3,23 +3,21 @@
 function periodOfTime(
   startDate = '01 Jan 1990',
   endDate = '15 Mar 2023',
-  timeCounter = 'hours') {
-  
+  timeCounter = 'hours'
+) {
   const timePeriod = {
     days: 86400,
     hours: 3600,
     minutes: 60,
-    seconds: 1
+    seconds: 1,
   };
-  
-    const starting = Date.parse(startDate);
-    const ending = Date.parse(endDate);
-    const diffInSeconds = Math.abs(starting - ending) / 1000;
-    const difference = diffInSeconds / timePeriod[timeCounter];
-    return difference;
-  }
- 
 
+  const starting = Date.parse(startDate);
+  const ending = Date.parse(endDate);
+  const diffInSeconds = Math.abs(starting - ending) / 1000;
+  const difference = diffInSeconds / timePeriod[timeCounter];
+  return difference;
+}
 
 console.log(periodOfTime('02 Aug 1985', '03 Aug 1985', 'minutes'));
 console.log(periodOfTime('02 Aug 1985', '03 Aug 1985', 'hours'));
@@ -34,14 +32,15 @@ const priceData = {
   BANANAS: '48',
   oRAngGEs: '48.7584',
 };
+
 function optimizer(data) {
-  const formattedObj = {};
-  for (const [key, value] of Object.entries(data)) {
-    formattedObj[key.toLowerCase()] = Number(value).toFixed(2);
-  }
-  return formattedObj;
+  const rrr = Object.entries(data)
+    .map(([key, value]) => [key.toLowerCase(), Number(value)])
+    .reduce((acc, [key, value]) => ({ ...acc, [key]: value.toFixed(2) }), {});
+  return rrr;
 }
-let updatedPriceData = optimizer(priceData);
+updatedPriceData = optimizer(priceData);
+
 console.log(updatedPriceData); // {apples: '23.40', bananas: '48.00', oranges: '48.76'}
 
 // 3  recursive
@@ -52,7 +51,6 @@ function recursiveOddSumTo(number) {
   }
   if (number % 2 === 0) {
     // number--;
-    
   }
   return number + recursiveOddSumTo(number - 2);
 }
@@ -73,4 +71,4 @@ function iterativeOddSumTo(number) {
 console.log(iterativeOddSumTo(1)); // 1
 console.log(iterativeOddSumTo(10)); // 25
 
-////JS REFACTOR
+
