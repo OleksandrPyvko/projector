@@ -46,13 +46,11 @@ console.log(updatedPriceData); // {apples: '23.40', bananas: '48.00', oranges: '
 // 3  recursive
 
 function recursiveOddSumTo(number) {
-  if (number <= 0) {
+  const newNumber = number % 2 === 0 ? number - 1 : number;
+  if (newNumber <= 0) {
     return 0;
   }
-  if (number % 2 === 0) {
-    // number--;
-  }
-  return number + recursiveOddSumTo(number - 2);
+  return newNumber + recursiveOddSumTo(newNumber - 2);
 }
 
 console.log(recursiveOddSumTo(1)); // 1
@@ -70,5 +68,3 @@ function iterativeOddSumTo(number) {
 
 console.log(iterativeOddSumTo(1)); // 1
 console.log(iterativeOddSumTo(10)); // 25
-
-
