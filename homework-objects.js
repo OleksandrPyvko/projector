@@ -34,10 +34,9 @@ const priceData = {
 };
 
 function optimizer(data) {
-  const rrr = Object.entries(data)
+  return Object.entries(data)
     .map(([key, value]) => [key.toLowerCase(), Number(value)])
     .reduce((acc, [key, value]) => ({ ...acc, [key]: value.toFixed(2) }), {});
-  return rrr;
 }
 updatedPriceData = optimizer(priceData);
 
@@ -46,11 +45,11 @@ console.log(updatedPriceData); // {apples: '23.40', bananas: '48.00', oranges: '
 // 3  recursive
 
 function recursiveOddSumTo(number) {
-  const newNumber = number % 2 === 0 ? number - 1 : number;
-  if (newNumber <= 0) {
+  const oddNumber = number % 2 === 0 ? number - 1 : number;
+  if (oddNumber <= 0) {
     return 0;
   }
-  return newNumber + recursiveOddSumTo(newNumber - 2);
+  return oddNumber + recursiveOddSumTo(oddNumber - 2);
 }
 
 console.log(recursiveOddSumTo(1)); // 1
