@@ -24,7 +24,7 @@ console.log(multiply(5)(5)); // 25*
 console.log(multiply(2)(-2)); // -4*
 console.log(multiply(4)(3)); // 12*
 
-// 3
+// 3 Sorting
 
 const movies = [
   {
@@ -53,9 +53,9 @@ const movies = [
   },
 ];
 
-console.log(movies.sort(byProperty('releaseYear', '>'))); 
-console.log(movies.sort(byProperty('runningTimeInMinutes', '<'))); 
-console.log(movies.sort(byProperty('movieName', '<'))); 
+console.log(movies.sort(byProperty('releaseYear', '>')));
+console.log(movies.sort(byProperty('runningTimeInMinutes', '<')));
+console.log(movies.sort(byProperty('movieName', '<')));
 
 function byProperty(property, direction) {
   return function (a, b) {
@@ -65,4 +65,31 @@ function byProperty(property, direction) {
       return a[property] < b[property] ? -1 : 1;
     }
   };
+}
+
+// 4 Detonator timer
+
+detonatorTimer(3);
+
+function detonatorTimer(delay) {
+  //   if (delay === 0) {
+  //     console.log('BOOM!');
+  //   }
+  //   if (delay > 0) {
+  //     console.log(delay);
+  //     setTimeout(() => {
+  //       detonatorTimer(delay - 1);
+  //     }, 1000);
+  //   }
+  // }
+
+  const intervalTimer = setInterval(() => {
+    if (delay > 0) {
+      console.log(delay);
+      delay--;
+    } else {
+      console.log('BOOM!');
+      clearInterval(intervalTimer);
+    }
+  }, 1000);
 }
