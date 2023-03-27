@@ -93,3 +93,45 @@ function detonatorTimer(delay) {
     }
   }, 1000);
 }
+
+//5
+
+let me = {
+  name: 'Oleksandr',
+  city: 'Yahotyn',
+  age: 30,
+  born: '08.01.1993',
+  gender: 'male',
+
+  allData() {
+    return console.log('All information', {
+      name: this.name,
+      city: this.city,
+      age: this.age,
+      gender: this.gender,
+      born: this.born,
+    });
+  },
+
+  myname() {
+    return console.log(`My name is ${this.name}`);
+  },
+
+  bornInfo() {
+    return console.log(`I was born in ${this.born} in ${this.city} city`);
+  },
+};
+
+me.myname();
+me.bornInfo();
+me.allData();
+
+// 6
+
+let securedMyName = me.myname.bind(me);
+let securedBornInfo = me.bornInfo.bind(me);
+let securedAllData = me.allData.bind(me);
+
+setTimeout(securedMyName, 5000);
+setTimeout(securedBornInfo, 5000);
+setTimeout(securedAllData, 5000);
