@@ -135,3 +135,22 @@ let securedAllData = me.allData.bind(me);
 setTimeout(securedMyName, 5000);
 setTimeout(securedBornInfo, 5000);
 setTimeout(securedAllData, 5000);
+
+//7
+
+function someFunction(a, b) {
+  console.log(a + b);
+}
+
+function decorator(func, seconds) {
+  console.log('Chill out, you will get you result in 5 seconds');
+  return function (...args) {
+    setTimeout(() => {
+      func.apply(this, args);
+    }, seconds * 1000);
+  };
+}
+
+let slowedSomeFunction = decorator(someFunction, 5);
+
+slowedSomeFunction(2, 3);
