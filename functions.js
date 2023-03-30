@@ -1,10 +1,7 @@
 //1 Sum of all numbers
 
 function addThemAll(...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
+  const sum = numbers.reduce((acc, number) => acc + number);
   return sum;
 }
 
@@ -14,11 +11,7 @@ console.log(addThemAll(5, 5, 10));
 
 //2 Closure / multiply
 
-function multiply(a) {
-  return function (b) {
-    return a * b;
-  };
-}
+const multiply = (a) => (b) => a * b;
 
 console.log(multiply(5)(5)); // 25*
 console.log(multiply(2)(-2)); // -4*
@@ -69,20 +62,22 @@ function byProperty(property, direction) {
 
 // 4 Detonator timer
 
+function detonatorTimer(delay) {
+  if (delay === 0) {
+    console.log('BOOM!');
+  }
+  if (delay > 0) {
+    console.log(delay);
+    setTimeout(() => {
+      detonatorTimer(delay - 1);
+    }, 1000);
+  }
+}
+
 detonatorTimer(3);
 
+// 4.1 Detonator timer (setInterval)
 function detonatorTimer(delay) {
-  //   if (delay === 0) {
-  //     console.log('BOOM!');
-  //   }
-  //   if (delay > 0) {
-  //     console.log(delay);
-  //     setTimeout(() => {
-  //       detonatorTimer(delay - 1);
-  //     }, 1000);
-  //   }
-  // }
-
   const intervalTimer = setInterval(() => {
     if (delay > 0) {
       console.log(delay);
@@ -93,6 +88,7 @@ function detonatorTimer(delay) {
     }
   }, 1000);
 }
+detonatorTimer(3);
 
 //5
 
