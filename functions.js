@@ -46,9 +46,7 @@ const movies = [
   },
 ];
 
-console.log(movies.sort(byProperty('releaseYear', '>')));
-console.log(movies.sort(byProperty('runningTimeInMinutes', '<')));
-console.log(movies.sort(byProperty('movieName', '<')));
+
 
 function byProperty(property, direction) {
   return function (a, b) {
@@ -61,6 +59,10 @@ function byProperty(property, direction) {
     }
   };
 }
+
+console.log(movies.sort(byProperty('releaseYear', '>')));
+console.log(movies.sort(byProperty('runningTimeInMinutes', '<')));
+console.log(movies.sort(byProperty('movieName', '<')));
 // 4 Detonator timer
 
 function detonatorTimer(delay) {
