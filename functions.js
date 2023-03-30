@@ -56,7 +56,8 @@ function byProperty(property, direction) {
       return a[property] > b[property] ? -1 : 1;
     } else if (direction === '<') {
       return a[property] < b[property] ? -1 : 1;
-    }
+    } else if (a[property] === b[property]) {
+  return 0;
   };
 }
 
