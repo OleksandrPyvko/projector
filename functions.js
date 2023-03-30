@@ -57,10 +57,10 @@ function byProperty(property, direction) {
     } else if (direction === '<') {
       return a[property] < b[property] ? -1 : 1;
     } else if (a[property] === b[property]) {
-  return 0;
+      return 0;
+    }
   };
 }
-
 // 4 Detonator timer
 
 function detonatorTimer(delay) {
@@ -74,11 +74,10 @@ function detonatorTimer(delay) {
     }, 1000);
   }
 }
-
 detonatorTimer(3);
 
 // 4.1 Detonator timer (setInterval)
-function detonatorTimer(delay) {
+function detonatorTimer2(delay) {
   const intervalTimer = setInterval(() => {
     if (delay > 0) {
       console.log(delay);
@@ -89,7 +88,8 @@ function detonatorTimer(delay) {
     }
   }, 1000);
 }
-detonatorTimer(3);
+
+detonatorTimer2(3);
 
 //5
 
@@ -111,11 +111,11 @@ let me = {
   },
 
   myname() {
-    return console.log(`My name is ${this.name}`);
+    return `My name is ${this.name}`;
   },
 
   bornInfo() {
-    return console.log(`I was born in ${this.born} in ${this.city} city`);
+    return `I was born in ${this.born} in ${this.city} city`;
   },
 };
 
@@ -142,12 +142,9 @@ function someFunction(a, b) {
 function decorator(func, seconds) {
   console.log('Chill out, you will get you result in 5 seconds');
   return function (...args) {
-    setTimeout(() => {
-      func.apply(this, args);
-    }, seconds * 1000);
+    setTimeout(func.bind(this, ...args), seconds * 1000);
   };
 }
-
 let slowedSomeFunction = decorator(someFunction, 5);
 
 slowedSomeFunction(2, 3);
