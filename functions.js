@@ -46,18 +46,12 @@ const movies = [
   },
 ];
 
-
-
 function byProperty(property, direction) {
-  return function (a, b) {
-    if (direction === '>') {
-      return a[property] > b[property] ? -1 : 1;
-    } else if (direction === '<') {
-      return a[property] < b[property] ? -1 : 1;
-    } else if (a[property] === b[property]) {
-      return 0;
-    }
+  const compare = (a, b) => {
+    const comparison = direction === '>' ? -1 : 1;
+    return comparison * (a[property] - b[property]);
   };
+  return compare;
 }
 
 console.log(movies.sort(byProperty('releaseYear', '>')));
@@ -103,13 +97,16 @@ let me = {
   gender: 'male',
 
   allData() {
-    return console.log('All information', {
-      name: this.name,
-      city: this.city,
-      age: this.age,
-      gender: this.gender,
-      born: this.born,
-    });
+    return (
+      'All information',
+      {
+        name: this.name,
+        city: this.city,
+        age: this.age,
+        gender: this.gender,
+        born: this.born,
+      }
+    );
   },
 
   myname() {
