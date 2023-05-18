@@ -1,30 +1,30 @@
 // //Iterator
-// const createIterator = () => {
-//   let number = 0;
-//   return {
-//     next: () => {
-//       number++;
-//       if (number > 100) {
-//         return { done: true };
-//       } if (number % 15 === 0) {
-//         return 'FizzBuzz';
-//       } if (number % 3 === 0) {
-//         return 'Fizz';
-//       } if (number % 5 === 0) {
-//         return 'Buzz';
-//       }
-//       return { value: number, done: false }
-//     },
-//   };
-// }
+const createIterator = () => {
+  let number = 0;
+  return {
+    next: () => {
+      number++;
+      if (number > 100) {
+        return { done: true };
+      } if (number % 15 === 0) {
+        return 'FizzBuzz';
+      } if (number % 3 === 0) {
+        return 'Fizz';
+      } if (number % 5 === 0) {
+        return 'Buzz';
+      }
+      return { value: number, done: false }
+    },
+  };
+}
 
-// const iterator = createIterator();
+const iterator = createIterator();
 
-// let counter = 0;
-// while (counter < 100) {
-//   console.log(iterator.next());
-//   counter++;
-// }
+let counter = 0;
+while (counter < 100) {
+  console.log(iterator.next());
+  counter++;
+}
 
 //Generator function
 
@@ -54,14 +54,14 @@ do {
 while (counter < 100);
 
 // // Random number generator
-// function* random(max, quantity) {
-//   for (let i = 0; i < quantity; i++) {
-//     yield Math.floor(Math.random() * max);
-//   }
-// }
+function* random(max, quantity) {
+  for (let i = 0; i < quantity; i++) {
+    yield Math.floor(Math.random() * max);
+  }
+}
 
-// const randomNumbers = random(100, 5);
+const randomNumbers = random(100, 5);
 
-// for (let numbers of randomNumbers) {
-//   console.log(numbers);
-// }
+for (let numbers of randomNumbers) {
+  console.log(numbers);
+}
