@@ -15,12 +15,9 @@ const renderArray = (arrayElement) => {
 const renderSet = (setElement) => {
   const set = getSet();
 
-  setElement.innerHTML = '';
-  set.forEach((value) => {
-    const listItem = document.createElement('li');
-    listItem.textContent = value + ',';
-    setElement.appendChild(listItem);
-  });
+ setElement.innerHTML = Array.from(set).join(',');
+  
+
 };
 
 export { renderArray, renderSet };

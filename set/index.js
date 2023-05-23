@@ -9,19 +9,14 @@ const emoji = generateRandomEmoji();
 import { addToArrayAndSet } from './dataManager.js';
 import { renderArray, renderSet } from './render.js';
 
-// const start = () => {
+
 inputElement.value = emoji;
-buttonElement.addEventListener('click', (Event) => {
-  Event.preventDefault();
+buttonElement.addEventListener('click', (event) => {
+  event.preventDefault();
   const value = inputElement.value;
   addToArrayAndSet(value);
+  event;
   renderArray(arrayElement);
   renderSet(setElement);
   updateEmoji(inputElement);
-  
-
 });
-
-// }
-
-// window.addEventListener("DOMContentLoaded", start);

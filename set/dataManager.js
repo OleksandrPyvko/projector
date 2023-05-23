@@ -6,9 +6,8 @@ const addToArrayAndSet = (value) => {
     array.shift();
   }
   array.push(value);
-  if (!set.has(value)) {
-    set.add(value);
-  }
+  
+  set.add(value);
 };
 
 const getArray = () => array;
